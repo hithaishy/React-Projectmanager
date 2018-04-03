@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Projects from './Components/Projects';
 import AddProject from './Components/AddProject';
 import uuid from 'uuid';
+import $ from 'jquery';
 import './App.css';
 
 class App extends Component {
@@ -12,23 +13,35 @@ class App extends Component {
     }
   }
 
-  componentWillMount(){
+  getProjects(){
     this.setState({projects: [
-    {
-      id:uuid.v4(),
-      title: 'Business Website',
-      category: 'Web Design'
-    },
-    {
-      id:uuid.v4(),
-      title: 'Social App',
-      category: 'Mobile Development'
-    },
-    {
-      id:uuid.v4(),
-      title: 'ECommerce Shopping Cart',
-      category: 'Web Design'
-    }]});
+      {
+        id:uuid.v4(),
+        title: 'Business Website',
+        category: 'Web Design'
+      },
+      {
+        id:uuid.v4(),
+        title: 'Social App',
+        category: 'Mobile Development'
+      },
+      {
+        id:uuid.v4(),
+        title: 'ECommerce Shopping Cart',
+        category: 'Web Design'
+      }]});
+  }
+  
+  getTodos(){
+
+  }
+  componentWillMount(){
+    this.getProjects();
+    this.getTodos();
+  }
+
+  ComponentDidMount(){
+    this.getTodos();
   }
 
   handleAddProject(project){
